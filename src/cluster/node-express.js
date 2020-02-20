@@ -6,6 +6,7 @@ import morgan from 'morgan'
 // import session from 'express-session'
 
 import configs from '../configs/app.config'
+import databaseConnection from '../configs/mongo.config'
 
 const initializeExpress = app => {
 	app.server = http.createServer(app)
@@ -21,6 +22,9 @@ const initializeExpress = app => {
 
 		console.log(`🚀 Your server running on ${configs.APP_URL}:${configs.PORT}`)
 		console.groupEnd()
+
+		console.log()
+		databaseConnection()
 	})
 }
 
